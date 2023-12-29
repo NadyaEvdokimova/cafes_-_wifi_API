@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "8f6ee3b4-f8d3-4400-a6fe-25873b580da1",
+		"name": "Cafe & WiFi",
+		"description": "Database that contains cafes with information that will be usefull for remote work in them.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32050509"
+	},
+	"item": [
+		{
+			"name": "Get All Cafes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:5000/all",
+				"description": "To get all cafes list"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Random Cafe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:5000/random",
+				"description": "To choose randomly one cafe and show information about it."
+			},
+			"response": []
+		},
+		{
+			"name": "Search Cafes By Location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/search?loc=Peckham",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "loc",
+							"value": "Peckham",
+							"description": "Search By Location"
+						}
+					]
+				},
+				"description": "Allows to look through the database and find a cafe with particular location."
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Cafe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Gobledyguk",
+							"type": "text"
+						},
+						{
+							"key": "map_url",
+							"value": "https://www.google.com/maps",
+							"type": "text"
+						},
+						{
+							"key": "img_url",
+							"value": "Image here",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "London Bridge",
+							"type": "text"
+						},
+						{
+							"key": "seats",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "has_toilet",
+							"value": "True",
+							"type": "text"
+						},
+						{
+							"key": "has_wifi",
+							"value": "True",
+							"type": "text"
+						},
+						{
+							"key": "has_sockets",
+							"value": "True",
+							"type": "text"
+						},
+						{
+							"key": "can_take_calls",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "coffee_price",
+							"value": "$3",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://127.0.0.1:5000/add",
+				"description": "Allows to add new cafe in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Coffee Price",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/update-price/5?new_coffee_price=$3.5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"update-price",
+						"5"
+					],
+					"query": [
+						{
+							"key": "new_coffee_price",
+							"value": "$3.5"
+						}
+					]
+				},
+				"description": "Allows to change the coffee price in particular cafe by its id."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cafe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/report-closed/5?api_key=TopSecretAPIKey",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"report-closed",
+						"5"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "TopSecretAPIKey"
+						}
+					]
+				},
+				"description": "Allows to delete the cafe by its id. API key is required."
+			},
+			"response": []
+		}
+	]
+}
